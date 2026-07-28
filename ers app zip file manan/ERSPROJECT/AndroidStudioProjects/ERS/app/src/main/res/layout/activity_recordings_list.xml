@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/neumorph_bg"
+    android:padding="24dp">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp">
+
+        <soup.neumorphism.NeumorphCardView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:neumorph_shapeType="flat"
+            app:neumorph_shadowElevation="6dp"
+            app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+            app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+            app:neumorph_backgroundColor="@color/neumorph_bg">
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="@string/back"
+                android:padding="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/text_primary" />
+        </soup.neumorphism.NeumorphCardView>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recordings"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/emergency_recording_system"
+                android:textSize="13sp"
+                android:textColor="@color/text_secondary"
+                android:alpha="0.6"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Recordings List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recordingsList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        android:visibility="gone" />
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/emptyState"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <soup.neumorphism.NeumorphCardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:neumorph_shapeType="basin"
+            app:neumorph_shadowElevation="10dp"
+            app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+            app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+            app:neumorph_backgroundColor="@color/neumorph_bg">
+
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:src="@drawable/microphone_icon"
+                android:alpha="0.4"
+                android:contentDescription="@string/recordings"
+                app:tint="@color/text_secondary" />
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/home"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:alpha="0.6"
+            android:text="@string/choose_trigger"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
+
+</LinearLayout>

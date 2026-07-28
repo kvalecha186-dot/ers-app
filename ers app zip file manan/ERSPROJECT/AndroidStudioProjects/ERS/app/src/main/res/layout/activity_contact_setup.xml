@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/neumorph_bg" android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:padding="28dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/mainCard"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardBackgroundColor="@color/dark_card"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp"
+            app:strokeColor="@color/glass_border"
+            app:strokeWidth="1dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="32dp"
+                android:gravity="center_horizontal">
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="📱" android:textSize="72sp" android:gravity="center"
+                    android:layout_marginBottom="20dp"/>
+
+                <TextView android:id="@+id/titleText"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Setup Emergency Contacts" android:textSize="24sp"
+                    android:textStyle="bold" android:textColor="@color/text_primary"
+                    android:textAlignment="center" android:layout_marginBottom="12dp"/>
+
+                <TextView android:id="@+id/subtitleText"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="Recordings will be automatically sent via Email and WhatsApp when triggered."
+                    android:textSize="14sp" android:textColor="@color/text_secondary"
+                    android:textAlignment="center" android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="32dp"/>
+
+                <!-- Email field -->
+                <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+                    app:neumorph_shapeType="basin" app:neumorph_shadowElevation="6dp"
+                    app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                    app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                    app:neumorph_backgroundColor="@color/neumorph_bg">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="16dp"
+                        android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="📧" android:textSize="24sp" android:layout_marginEnd="12dp"/>
+                        <EditText android:id="@+id/emailInput"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:hint="Emergency Email"
+                            android:inputType="textEmailAddress" android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_secondary" android:textSize="15sp"
+                            android:background="@android:color/transparent" android:padding="8dp" />
+                    </LinearLayout>
+                </soup.neumorphism.NeumorphCardView>
+
+                <!-- Phone field -->
+                <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+                    app:neumorph_shapeType="basin" app:neumorph_shadowElevation="6dp"
+                    app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                    app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                    app:neumorph_backgroundColor="@color/neumorph_bg">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="16dp"
+                        android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="💬" android:textSize="24sp" android:layout_marginEnd="12dp"/>
+                        <EditText android:id="@+id/phoneInput"
+                            android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:hint="WhatsApp (+919876543210)"
+                            android:inputType="phone" android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_secondary" android:textSize="15sp"
+                            android:background="@android:color/transparent" android:padding="8dp" />
+                    </LinearLayout>
+                </soup.neumorphism.NeumorphCardView>
+
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="💡 Include country code e.g. +919876543210"
+                    android:textSize="12sp" android:textColor="@color/text_secondary"
+                    android:textAlignment="center" android:layout_marginBottom="28dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/saveButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="Save &amp; Continue"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/success"
+                    app:cornerRadius="16dp"
+                    android:layout_marginBottom="14dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/skipButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Skip for Now"
+                    android:textSize="14sp"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:textColor="@color/text_secondary"
+                    app:cornerRadius="16dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

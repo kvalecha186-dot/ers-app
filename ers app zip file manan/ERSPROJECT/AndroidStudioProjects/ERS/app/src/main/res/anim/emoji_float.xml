@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- EMOJI FLOAT - MATCHES HTML EXACTLY: 2.5s, up/down, scale -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+    android:shareInterpolator="true">
+    
+    <!-- Up and down movement: 0 to -30dp -->
+    <translate
+        android:fromYDelta="0"
+        android:toYDelta="-30"
+        android:duration="1250"
+        android:repeatCount="infinite"
+        android:repeatMode="reverse" />
+    
+    <!-- Scale effect: 1.0 to 1.1 -->
+    <scale
+        android:fromXScale="1.0"
+        android:toXScale="1.1"
+        android:fromYScale="1.0"
+        android:toYScale="1.1"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:duration="1250"
+        android:repeatCount="infinite"
+        android:repeatMode="reverse" />
+    
+</set>

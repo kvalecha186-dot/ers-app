@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Primary Colors -->
+    <color name="primary">#6C63FF</color>
+    <color name="primary_dark">#4B46CC</color>
+    <color name="primary_light">#9D97FF</color>
+    <color name="accent">#FF6584</color>
+    
+    <!-- Glassmorphism Colors -->
+    <color name="glass_background">#1AFFFFFF</color>
+    <color name="glass_border">#33FFFFFF</color>
+    <color name="glass_shadow">#26000000</color>
+    <color name="glass_card">#15FFFFFF</color>
+    
+    <!-- Background Gradient -->
+    <color name="gradient_start">#667EEA</color>
+    <color name="gradient_middle">#764BA2</color>
+    <color name="gradient_end">#F093FB</color>
+    <color name="background_gradient">#667EEA</color>
+    
+    <!-- Background -->
+    <color name="background">#0F0F1E</color>
+    
+    <!-- Dark Theme -->
+    <color name="dark_background">#0F0F1E</color>
+    <color name="dark_surface">#1A1A2E</color>
+    <color name="dark_card">#252544</color>
+    <color name="solid_dialog_background">#1A1A2E</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#4CAF50</color>
+    <color name="error">#FF5252</color>
+    <color name="warning">#FFC107</color>
+    <color name="info">#2196F3</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B3B3CC</color>
+    <color name="text_hint">#808099</color>
+    
+    <!-- Recording States -->
+    <color name="recording">#FF4757</color>
+    <color name="recording_pulse">#33FF4757</color>
+    <color name="ready">#4CAF50</color>
+    
+    <!-- Input Background -->
+    <color name="input_background">#1A1A2E</color>
+    
+    <!-- Additional UI Colors -->
+    <color name="card_background">#1A1A2E</color>
+    <color name="divider">#252544</color>
+    <color name="shadow_light">#33FFFFFF</color>
+    <color name="shadow_dark">#26000000</color>
+    <color name="accent_light">#FF8FA3</color>
+    
+    <!-- Neumorphism Colors (dark theme) -->
+    <color name="neumorph_bg">#1A1A2E</color>
+    <color name="neumorph_shadow_light">#2D2D50</color>
+    <color name="neumorph_shadow_dark">#07070F</color>
+
+    <!-- Basic Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    
+    <!-- Material 3 Required Colors -->
+    <color name="seed" tools:ignore="UnusedResources">#6C63FF</color>
+    <color name="md_theme_light_primary" tools:ignore="UnusedResources">#6C63FF</color>
+    <color name="md_theme_light_onPrimary" tools:ignore="UnusedResources">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer" tools:ignore="UnusedResources">#9D97FF</color>
+    <color name="md_theme_light_onPrimaryContainer" tools:ignore="UnusedResources">#1A1432</color>
+    <color name="md_theme_dark_primary" tools:ignore="UnusedResources">#9D97FF</color>
+    <color name="md_theme_dark_onPrimary" tools:ignore="UnusedResources">#2E2956</color>
+    <color name="md_theme_dark_primaryContainer" tools:ignore="UnusedResources">#4B46CC</color>
+    <color name="md_theme_dark_onPrimaryContainer" tools:ignore="UnusedResources">#E5E1FF</color>
+</resources>

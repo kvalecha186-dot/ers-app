@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ERS</string>
+    <string name="home">Home</string>
+    <string name="recordings">Recordings</string>
+    <string name="settings">Settings</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+    <string name="play">Play</string>
+    <string name="stop">Stop</string>
+    <string name="record">Record</string>
+    <string name="emergency_recording_system">Emergency Recording System</string>
+    <string name="back">Back</string>
+    <string name="trigger_method">Trigger Method</string>
+    <string name="choose_trigger">Press and HOLD for 3 seconds to activate recording</string>
+    <string name="volume_down_5x">Hold Volume Down (3 sec)</string>
+    <string name="volume_up_5x">Hold Volume Up (3 sec)</string>
+    <string name="power_button_5x">Hold Power Button (3 sec)</string>
+    <string name="email_notification">Email Notification</string>
+    <string name="enter_email">Enter email address</string>
+    <string name="whatsapp_alert">WhatsApp Alert</string>
+    <string name="enter_phone">Enter phone (+91XXXXXXXXXX)</string>
+    <string name="save_settings">Save Settings</string>
+    <string name="accessibility_service_description">ERS uses this service to detect volume button holds (3 seconds) for emergency recording, even when your screen is off. This ensures you can trigger emergency recordings discreetly in critical situations.\n\nERS does NOT read your screen content or personal data. It only monitors volume button presses.</string>
+</resources>

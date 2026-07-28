@@ -1,0 +1,12 @@
+    @Override
+    public void onBackPressed() {
+        if (isServiceRunning) {
+            // Just minimize the app without showing dialog since service is robust
+            super.onBackPressed();
+            moveTaskToBack(true);
+        } else {
+            super.onBackPressed();
+            finishAffinity();
+        }
+    }
+}

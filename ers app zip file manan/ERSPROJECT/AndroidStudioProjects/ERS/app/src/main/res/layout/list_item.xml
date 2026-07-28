@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soup.neumorphism.NeumorphCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_marginBottom="16dp"
+    app:neumorph_shapeType="flat"
+    app:neumorph_shadowElevation="8dp"
+    app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+    app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+    app:neumorph_backgroundColor="@color/neumorph_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Mic icon card -->
+            <soup.neumorphism.NeumorphCardView
+                android:id="@+id/micIconCard"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:neumorph_shapeType="basin"
+                app:neumorph_shadowElevation="6dp"
+                app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                app:neumorph_backgroundColor="@color/neumorph_bg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/microphone_icon"
+                    android:contentDescription="@string/record"
+                    app:tint="@color/primary" />
+            </soup.neumorphism.NeumorphCardView>
+
+            <!-- Info column -->
+            <LinearLayout
+                android:id="@+id/infoContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/actionButtons"
+                app:layout_constraintStart_toEndOf="@id/micIconCard"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/fileNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="29 Apr 2025  10:30 AM" />
+
+                <TextView
+                    android:id="@+id/fileSizeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    tools:text="2.5 MB" />
+
+                <TextView
+                    android:id="@+id/dateText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/info"
+                    android:textSize="11sp"
+                    tools:text="29 Apr 2025, 10:30 AM" />
+
+                <!-- Sent status -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/sentStatusDot"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:src="@drawable/status_indicator"
+                        android:contentDescription="@string/back"
+                        app:tint="@color/error" />
+
+                    <TextView
+                        android:id="@+id/sentStatusText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:textColor="@color/error"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        tools:text="Not sent" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Action buttons -->
+            <LinearLayout
+                android:id="@+id/actionButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!-- Play/Stop -->
+                <soup.neumorphism.NeumorphCardView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="8dp"
+                    app:neumorph_shapeType="flat"
+                    app:neumorph_shadowElevation="6dp"
+                    app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                    app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                    app:neumorph_backgroundColor="@color/neumorph_bg">
+                    <ImageButton
+                        android:id="@+id/playPauseButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/icon_start"
+                        android:contentDescription="@string/play"
+                        android:padding="9dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:tint="@color/primary" />
+                </soup.neumorphism.NeumorphCardView>
+
+                <!-- Share -->
+                <soup.neumorphism.NeumorphCardView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="8dp"
+                    app:neumorph_shapeType="flat"
+                    app:neumorph_shadowElevation="6dp"
+                    app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                    app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                    app:neumorph_backgroundColor="@color/neumorph_bg">
+                    <ImageButton
+                        android:id="@+id/shareButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_share"
+                        android:contentDescription="@string/share"
+                        android:padding="9dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:tint="@color/info" />
+                </soup.neumorphism.NeumorphCardView>
+
+                <!-- Delete -->
+                <soup.neumorphism.NeumorphCardView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    app:neumorph_shapeType="flat"
+                    app:neumorph_shadowElevation="6dp"
+                    app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                    app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                    app:neumorph_backgroundColor="@color/neumorph_bg">
+                    <ImageButton
+                        android:id="@+id/deleteButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_delete"
+                        android:contentDescription="@string/delete"
+                        android:padding="9dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:tint="@color/error" />
+                </soup.neumorphism.NeumorphCardView>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- SeekBar -->
+        <SeekBar
+            android:id="@+id/audioSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:progressTint="@color/primary"
+            android:thumbTint="@color/primary"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/durationText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="end"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:visibility="gone"
+            tools:text="1:42"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+</soup.neumorphism.NeumorphCardView>

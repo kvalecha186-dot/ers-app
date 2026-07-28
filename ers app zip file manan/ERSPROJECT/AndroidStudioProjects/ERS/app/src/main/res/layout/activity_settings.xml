@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/neumorph_bg">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <soup.neumorphism.NeumorphCardView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:neumorph_shapeType="flat"
+            app:neumorph_shadowElevation="6dp"
+            app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+            app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+            app:neumorph_backgroundColor="@color/neumorph_bg">
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow_back"
+                android:contentDescription="@string/back"
+                android:padding="12dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:tint="@color/text_primary" />
+        </soup.neumorphism.NeumorphCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="@string/settings"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- ══ SYSTEM PERMISSIONS ══ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SYSTEM PERMISSIONS"
+                android:textSize="11sp" android:textStyle="bold"
+                android:textColor="@color/text_secondary"
+                android:letterSpacing="0.15"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="4dp" />
+
+            <soup.neumorphism.NeumorphCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
+                app:neumorph_shapeType="flat"
+                app:neumorph_shadowElevation="8dp"
+                app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                app:neumorph_backgroundColor="@color/neumorph_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <!-- Accessibility row -->
+                    <LinearLayout android:id="@+id/rowAccessibility"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="16dp"
+                        android:gravity="center_vertical"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true" android:focusable="true">
+                        <soup.neumorphism.NeumorphCardView
+                            android:layout_width="42dp" android:layout_height="42dp"
+                            android:layout_marginEnd="14dp"
+                            app:neumorph_shapeType="basin" app:neumorph_shadowElevation="4dp"
+                            app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                            app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                            app:neumorph_backgroundColor="@color/neumorph_bg">
+                            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                                android:text="♿" android:textSize="20sp" android:gravity="center"/>
+                        </soup.neumorphism.NeumorphCardView>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Accessibility Service" android:textSize="14sp"
+                                android:textStyle="bold" android:textColor="@color/text_primary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Required for volume hold trigger" android:textSize="11sp"
+                                android:textColor="@color/text_secondary" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:tag="badgeText" android:layout_width="52dp"
+                                android:layout_height="26dp" android:text="OFF" android:textSize="11sp"
+                                android:textStyle="bold" android:textColor="@color/error"
+                                android:gravity="center" android:layout_marginBottom="6dp"/>
+                            <com.google.android.material.button.MaterialButton android:tag="actionBtn"
+                                android:layout_width="wrap_content" android:layout_height="30dp"
+                                android:text="Enable" android:textSize="10sp"
+                                android:paddingStart="10dp" android:paddingEnd="10dp"
+                                app:cornerRadius="8dp" app:backgroundTint="@color/primary"
+                                style="@style/Widget.MaterialComponents.Button"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="@color/neumorph_shadow_dark" android:alpha="0.5"
+                        android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+                    <!-- Microphone row -->
+                    <LinearLayout android:id="@+id/rowMicrophone"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="16dp"
+                        android:gravity="center_vertical"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true" android:focusable="true">
+                        <soup.neumorphism.NeumorphCardView
+                            android:layout_width="42dp" android:layout_height="42dp"
+                            android:layout_marginEnd="14dp"
+                            app:neumorph_shapeType="basin" app:neumorph_shadowElevation="4dp"
+                            app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                            app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                            app:neumorph_backgroundColor="@color/neumorph_bg">
+                            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                                android:text="🎙" android:textSize="20sp" android:gravity="center"/>
+                        </soup.neumorphism.NeumorphCardView>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Microphone" android:textSize="14sp"
+                                android:textStyle="bold" android:textColor="@color/text_primary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Required to record audio" android:textSize="11sp"
+                                android:textColor="@color/text_secondary" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:tag="badgeText" android:layout_width="52dp"
+                                android:layout_height="26dp" android:text="OFF" android:textSize="11sp"
+                                android:textStyle="bold" android:textColor="@color/error"
+                                android:gravity="center" android:layout_marginBottom="6dp"/>
+                            <com.google.android.material.button.MaterialButton android:tag="actionBtn"
+                                android:layout_width="wrap_content" android:layout_height="30dp"
+                                android:text="Enable" android:textSize="10sp"
+                                android:paddingStart="10dp" android:paddingEnd="10dp"
+                                app:cornerRadius="8dp" app:backgroundTint="@color/primary"
+                                style="@style/Widget.MaterialComponents.Button"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="@color/neumorph_shadow_dark" android:alpha="0.5"
+                        android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+                    <!-- Notifications row -->
+                    <LinearLayout android:id="@+id/rowNotification"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="16dp"
+                        android:gravity="center_vertical"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true" android:focusable="true">
+                        <soup.neumorphism.NeumorphCardView
+                            android:layout_width="42dp" android:layout_height="42dp"
+                            android:layout_marginEnd="14dp"
+                            app:neumorph_shapeType="basin" app:neumorph_shadowElevation="4dp"
+                            app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                            app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                            app:neumorph_backgroundColor="@color/neumorph_bg">
+                            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                                android:text="🔔" android:textSize="20sp" android:gravity="center"/>
+                        </soup.neumorphism.NeumorphCardView>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Notifications" android:textSize="14sp"
+                                android:textStyle="bold" android:textColor="@color/text_primary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Shows hold progress on screen" android:textSize="11sp"
+                                android:textColor="@color/text_secondary" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:tag="badgeText" android:layout_width="52dp"
+                                android:layout_height="26dp" android:text="OFF" android:textSize="11sp"
+                                android:textStyle="bold" android:textColor="@color/error"
+                                android:gravity="center" android:layout_marginBottom="6dp"/>
+                            <com.google.android.material.button.MaterialButton android:tag="actionBtn"
+                                android:layout_width="wrap_content" android:layout_height="30dp"
+                                android:text="Enable" android:textSize="10sp"
+                                android:paddingStart="10dp" android:paddingEnd="10dp"
+                                app:cornerRadius="8dp" app:backgroundTint="@color/primary"
+                                style="@style/Widget.MaterialComponents.Button"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="@color/neumorph_shadow_dark" android:alpha="0.5"
+                        android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+                    <!-- Battery row -->
+                    <LinearLayout android:id="@+id/rowBattery"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="16dp"
+                        android:gravity="center_vertical"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true" android:focusable="true">
+                        <soup.neumorphism.NeumorphCardView
+                            android:layout_width="42dp" android:layout_height="42dp"
+                            android:layout_marginEnd="14dp"
+                            app:neumorph_shapeType="basin" app:neumorph_shadowElevation="4dp"
+                            app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                            app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                            app:neumorph_backgroundColor="@color/neumorph_bg">
+                            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                                android:text="🔋" android:textSize="20sp" android:gravity="center"/>
+                        </soup.neumorphism.NeumorphCardView>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Battery Optimization" android:textSize="14sp"
+                                android:textStyle="bold" android:textColor="@color/text_primary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Disable so app runs in background" android:textSize="11sp"
+                                android:textColor="@color/text_secondary" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:tag="badgeText" android:layout_width="52dp"
+                                android:layout_height="26dp" android:text="OFF" android:textSize="11sp"
+                                android:textStyle="bold" android:textColor="@color/error"
+                                android:gravity="center" android:layout_marginBottom="6dp"/>
+                            <com.google.android.material.button.MaterialButton android:tag="actionBtn"
+                                android:layout_width="wrap_content" android:layout_height="30dp"
+                                android:text="Enable" android:textSize="10sp"
+                                android:paddingStart="10dp" android:paddingEnd="10dp"
+                                app:cornerRadius="8dp" app:backgroundTint="@color/primary"
+                                style="@style/Widget.MaterialComponents.Button"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="@color/neumorph_shadow_dark" android:alpha="0.5"
+                        android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+                    <!-- Location row -->
+                    <LinearLayout android:id="@+id/rowLocation"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="16dp"
+                        android:gravity="center_vertical"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true" android:focusable="true">
+                        <soup.neumorphism.NeumorphCardView
+                            android:layout_width="42dp" android:layout_height="42dp"
+                            android:layout_marginEnd="14dp"
+                            app:neumorph_shapeType="basin" app:neumorph_shadowElevation="4dp"
+                            app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                            app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                            app:neumorph_backgroundColor="@color/neumorph_bg">
+                            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                                android:text="📍" android:textSize="20sp" android:gravity="center"/>
+                        </soup.neumorphism.NeumorphCardView>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Location" android:textSize="14sp"
+                                android:textStyle="bold" android:textColor="@color/text_primary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Attaches GPS link to emergency alert" android:textSize="11sp"
+                                android:textColor="@color/text_secondary" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:tag="badgeText" android:layout_width="52dp"
+                                android:layout_height="26dp" android:text="OFF" android:textSize="11sp"
+                                android:textStyle="bold" android:textColor="@color/error"
+                                android:gravity="center" android:layout_marginBottom="6dp"/>
+                            <com.google.android.material.button.MaterialButton android:tag="actionBtn"
+                                android:layout_width="wrap_content" android:layout_height="30dp"
+                                android:text="Enable" android:textSize="10sp"
+                                android:paddingStart="10dp" android:paddingEnd="10dp"
+                                app:cornerRadius="8dp" app:backgroundTint="@color/primary"
+                                style="@style/Widget.MaterialComponents.Button"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View android:layout_width="match_parent" android:layout_height="1dp"
+                        android:background="@color/neumorph_shadow_dark" android:alpha="0.5"
+                        android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+                    <!-- SMS row -->
+                    <LinearLayout android:id="@+id/rowSms"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="16dp"
+                        android:gravity="center_vertical"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true" android:focusable="true">
+                        <soup.neumorphism.NeumorphCardView
+                            android:layout_width="42dp" android:layout_height="42dp"
+                            android:layout_marginEnd="14dp"
+                            app:neumorph_shapeType="basin" app:neumorph_shadowElevation="4dp"
+                            app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                            app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                            app:neumorph_backgroundColor="@color/neumorph_bg">
+                            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                                android:text="📲" android:textSize="20sp" android:gravity="center"/>
+                        </soup.neumorphism.NeumorphCardView>
+                        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:orientation="vertical">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="SMS Alert" android:textSize="14sp"
+                                android:textStyle="bold" android:textColor="@color/text_primary"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Auto-SMS when recording starts (no internet)" android:textSize="11sp"
+                                android:textColor="@color/text_secondary" android:layout_marginTop="2dp"/>
+                        </LinearLayout>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:orientation="vertical" android:gravity="center">
+                            <TextView android:tag="badgeText" android:layout_width="52dp"
+                                android:layout_height="26dp" android:text="OFF" android:textSize="11sp"
+                                android:textStyle="bold" android:textColor="@color/error"
+                                android:gravity="center" android:layout_marginBottom="6dp"/>
+                            <com.google.android.material.button.MaterialButton android:tag="actionBtn"
+                                android:layout_width="wrap_content" android:layout_height="30dp"
+                                android:text="Enable" android:textSize="10sp"
+                                android:paddingStart="10dp" android:paddingEnd="10dp"
+                                app:cornerRadius="8dp" app:backgroundTint="@color/primary"
+                                style="@style/Widget.MaterialComponents.Button"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <!-- ══ TRIGGER METHOD ══ -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="TRIGGER METHOD" android:textSize="11sp" android:textStyle="bold"
+                android:textColor="@color/text_secondary" android:letterSpacing="0.15"
+                android:layout_marginBottom="12dp" android:layout_marginStart="4dp" />
+
+            <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="28dp"
+                app:neumorph_shapeType="flat" app:neumorph_shadowElevation="8dp"
+                app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                app:neumorph_backgroundColor="@color/neumorph_bg">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="24dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="@string/trigger_method" android:textSize="17sp"
+                        android:textStyle="bold" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="@string/choose_trigger" android:textSize="12sp"
+                        android:textColor="@color/text_secondary" android:layout_marginBottom="16dp"/>
+                    <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                        android:layout_height="wrap_content" app:neumorph_shapeType="basin"
+                        app:neumorph_shadowElevation="6dp"
+                        app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                        app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                        app:neumorph_backgroundColor="@color/neumorph_bg">
+                        <RadioGroup android:id="@+id/triggerTypeGroup"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:padding="8dp">
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/volumeDownRadio" android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/volume_down_5x" android:textSize="14sp"
+                                android:textColor="@color/text_primary" android:padding="12dp"
+                                android:checked="true" app:buttonTint="@color/primary"/>
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/volumeUpRadio" android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/volume_up_5x" android:textSize="14sp"
+                                android:textColor="@color/text_primary" android:padding="12dp"
+                                app:buttonTint="@color/primary"/>
+                        </RadioGroup>
+                    </soup.neumorphism.NeumorphCardView>
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <!-- ══ MAX DURATION ══ -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="MAX RECORDING DURATION" android:textSize="11sp" android:textStyle="bold"
+                android:textColor="@color/text_secondary" android:letterSpacing="0.15"
+                android:layout_marginBottom="12dp" android:layout_marginStart="4dp" />
+
+            <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="28dp"
+                app:neumorph_shapeType="flat" app:neumorph_shadowElevation="8dp"
+                app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                app:neumorph_backgroundColor="@color/neumorph_bg">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="24dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Auto-stop recording after…" android:textSize="17sp"
+                        android:textStyle="bold" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Prevents storage from filling up if you forget to stop"
+                        android:textSize="12sp" android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="16dp"/>
+                    <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                        android:layout_height="wrap_content" app:neumorph_shapeType="basin"
+                        app:neumorph_shadowElevation="6dp"
+                        app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                        app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                        app:neumorph_backgroundColor="@color/neumorph_bg">
+                        <RadioGroup android:id="@+id/durationGroup"
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:padding="8dp">
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/dur5min" android:layout_width="match_parent"
+                                android:layout_height="wrap_content" android:text="5 minutes"
+                                android:textSize="14sp" android:textColor="@color/text_primary"
+                                android:padding="12dp" app:buttonTint="@color/primary"/>
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/dur15min" android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="15 minutes (recommended)" android:textSize="14sp"
+                                android:textColor="@color/text_primary" android:padding="12dp"
+                                android:checked="true" app:buttonTint="@color/primary"/>
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/dur30min" android:layout_width="match_parent"
+                                android:layout_height="wrap_content" android:text="30 minutes"
+                                android:textSize="14sp" android:textColor="@color/text_primary"
+                                android:padding="12dp" app:buttonTint="@color/primary"/>
+                            <com.google.android.material.radiobutton.MaterialRadioButton
+                                android:id="@+id/durUnlimited" android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Unlimited (not recommended)" android:textSize="14sp"
+                                android:textColor="@color/text_primary" android:padding="12dp"
+                                app:buttonTint="@color/primary"/>
+                        </RadioGroup>
+                    </soup.neumorphism.NeumorphCardView>
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <!-- ══ EMERGENCY CONTACTS ══ -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="EMERGENCY CONTACTS" android:textSize="11sp" android:textStyle="bold"
+                android:textColor="@color/text_secondary" android:letterSpacing="0.15"
+                android:layout_marginBottom="12dp" android:layout_marginStart="4dp" />
+
+            <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="14dp"
+                app:neumorph_shapeType="flat" app:neumorph_shadowElevation="8dp"
+                app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                app:neumorph_backgroundColor="@color/neumorph_bg">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="24dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="📧  Email Notification" android:textSize="16sp"
+                        android:textStyle="bold" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="14dp"/>
+                    <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                        android:layout_height="wrap_content" app:neumorph_shapeType="basin"
+                        app:neumorph_shadowElevation="5dp"
+                        app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                        app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                        app:neumorph_backgroundColor="@color/neumorph_bg">
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none" app:hintTextColor="@color/text_secondary"
+                            app:boxStrokeWidth="0dp" app:boxStrokeWidthFocused="0dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/emailInput" android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/enter_email"
+                                android:inputType="textEmailAddress" android:textSize="14sp"
+                                android:textColor="@color/text_primary" android:padding="16dp"
+                                android:background="@android:color/transparent"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </soup.neumorphism.NeumorphCardView>
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="28dp"
+                app:neumorph_shapeType="flat" app:neumorph_shadowElevation="8dp"
+                app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                app:neumorph_backgroundColor="@color/neumorph_bg">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="24dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="💬  WhatsApp &amp; SMS" android:textSize="16sp"
+                        android:textStyle="bold" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Auto-SMS sent when recording starts (no internet needed)"
+                        android:textSize="12sp" android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="14dp"/>
+                    <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                        android:layout_height="wrap_content" app:neumorph_shapeType="basin"
+                        app:neumorph_shadowElevation="5dp"
+                        app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                        app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                        app:neumorph_backgroundColor="@color/neumorph_bg">
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none" app:hintTextColor="@color/text_secondary"
+                            app:boxStrokeWidth="0dp" app:boxStrokeWidthFocused="0dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/phoneInput" android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/enter_phone"
+                                android:inputType="phone" android:textSize="14sp"
+                                android:textColor="@color/text_primary" android:padding="16dp"
+                                android:background="@android:color/transparent"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </soup.neumorphism.NeumorphCardView>
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <!-- ══ EMAIL SENDER (AUTO-ALERT) ══ -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="EMAIL SENDER (AUTO-ALERT)" android:textSize="11sp" android:textStyle="bold"
+                android:textColor="@color/text_secondary" android:letterSpacing="0.15"
+                android:layout_marginBottom="12dp" android:layout_marginStart="4dp" />
+
+            <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="28dp"
+                app:neumorph_shapeType="flat" app:neumorph_shadowElevation="8dp"
+                app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                app:neumorph_backgroundColor="@color/neumorph_bg">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="24dp">
+
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="📤  Auto Email Setup" android:textSize="17sp"
+                        android:textStyle="bold" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Email fires automatically when recording starts — no tap needed"
+                        android:textSize="12sp" android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="14dp"/>
+
+                    <!-- Info box -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="14dp"
+                        android:background="@color/dark_surface"
+                        android:layout_marginBottom="18dp">
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Requires Gmail App Password (NOT your login password).&#10;Get one at: myaccount.google.com/apppasswords&#10;Create for 'Mail' → 'Other' → name it ERS → copy 16-char code"
+                            android:textSize="11sp" android:textColor="@color/primary_light"
+                            android:lineSpacingExtra="3dp"/>
+                    </LinearLayout>
+
+                    <!-- Sender Gmail -->
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Your Gmail address (sends the alert)"
+                        android:textSize="13sp" android:textStyle="bold"
+                        android:textColor="@color/text_primary" android:layout_marginBottom="8dp"/>
+                    <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                        android:layout_height="wrap_content" app:neumorph_shapeType="basin"
+                        app:neumorph_shadowElevation="5dp"
+                        app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                        app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                        app:neumorph_backgroundColor="@color/neumorph_bg"
+                        android:layout_marginBottom="16dp">
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none" app:hintTextColor="@color/text_secondary"
+                            app:boxStrokeWidth="0dp" app:boxStrokeWidthFocused="0dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/smtpEmailInput"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:hint="yourgmail@gmail.com"
+                                android:inputType="textEmailAddress" android:textSize="14sp"
+                                android:textColor="@color/text_primary" android:padding="16dp"
+                                android:background="@android:color/transparent"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </soup.neumorphism.NeumorphCardView>
+
+                    <!-- App Password -->
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Gmail App Password (16 characters)"
+                        android:textSize="13sp" android:textStyle="bold"
+                        android:textColor="@color/text_primary" android:layout_marginBottom="8dp"/>
+                    <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                        android:layout_height="wrap_content" app:neumorph_shapeType="basin"
+                        app:neumorph_shadowElevation="5dp"
+                        app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                        app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                        app:neumorph_backgroundColor="@color/neumorph_bg">
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent" android:layout_height="wrap_content"
+                            app:boxBackgroundMode="none" app:hintTextColor="@color/text_secondary"
+                            app:boxStrokeWidth="0dp" app:boxStrokeWidthFocused="0dp">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/smtpPasswordInput"
+                                android:layout_width="match_parent" android:layout_height="wrap_content"
+                                android:hint="xxxx xxxx xxxx xxxx"
+                                android:inputType="textPassword" android:textSize="14sp"
+                                android:textColor="@color/text_primary" android:padding="16dp"
+                                android:background="@android:color/transparent"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </soup.neumorphism.NeumorphCardView>
+
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <!-- ══ CLOUD BACKUP ══ -->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="CLOUD BACKUP" android:textSize="11sp" android:textStyle="bold"
+                android:textColor="@color/text_secondary" android:letterSpacing="0.15"
+                android:layout_marginBottom="12dp" android:layout_marginStart="4dp" />
+
+            <soup.neumorphism.NeumorphCardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="28dp"
+                app:neumorph_shapeType="flat" app:neumorph_shadowElevation="8dp"
+                app:neumorph_shadowColorLight="@color/neumorph_shadow_light"
+                app:neumorph_shadowColorDark="@color/neumorph_shadow_dark"
+                app:neumorph_backgroundColor="@color/neumorph_bg">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="24dp">
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="☁️  Google Drive Backup" android:textSize="17sp"
+                        android:textStyle="bold" android:textColor="@color/text_primary"
+                        android:layout_marginBottom="4dp"/>
+                    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="Upload recordings to Drive — survives even if phone is seized"
+                        android:textSize="12sp" android:textColor="@color/text_secondary"
+                        android:layout_marginBottom="18dp"/>
+                    <com.google.android.material.button.MaterialButton
+                    android:id="@+id/driveToggleButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="☁️  Drive Backup: OFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp" />
+                </LinearLayout>
+            </soup.neumorphism.NeumorphCardView>
+
+            <!-- ══ SAVE BUTTON ══ -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:text="@string/save_settings"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/success"
+                app:cornerRadius="16dp"
+                android:layout_marginBottom="32dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
