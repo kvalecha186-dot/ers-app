@@ -4,13 +4,13 @@ ERS (Emergency Recording System) is an Android application I have been working o
 
 The main idea is simple: set up the app in advance, add trusted emergency contacts, grant the required permissions and enable the emergency service. When the configured hardware-button trigger is used, ERS can start an audio-recording workflow and prepare or send emergency alerts using the configured communication methods.
 
-This repository contains the Android Studio project files. The primary implementation is in the \`ERS\` project folder.
+This repository contains the Android Studio project files. The primary implementation is in the `ERS` project folder.
 
 ## Main features in the Android implementation
 
 - **Onboarding and setup:** Guides the user through initial configuration and required permissions.
 - **Hardware-button trigger:** Uses an Android Accessibility Service to detect configured volume-button interactions.
-- **Emergency recording service:** Uses Android's \`MediaRecorder\` through a foreground service to capture audio.
+- **Emergency recording service:** Uses Android's `MediaRecorder` through a foreground service to capture audio.
 - **Location support:** Uses Android location permissions and Google Play Services Location to obtain location information for alerts.
 - **Trusted contacts:** Lets users configure emergency contact details.
 - **Emergency alerts:** Includes SMS alert handling and email integration. WhatsApp sharing is also part of the alert workflow.
@@ -22,7 +22,7 @@ The exact behaviour depends on Android permissions, device settings, OS restrict
 
 ## How the trigger flow is intended to work
 
-\`\`\`text
+```text
 Initial setup
     |
     v
@@ -49,7 +49,7 @@ Stop recording and save the audio file
     |
     v
 Review or share the recording
-\`\`\`
+```
 
 The app is designed to reduce the number of steps needed during a stressful situation. It should still be configured and tested in advance; it is not a replacement for calling local emergency services.
 
@@ -72,24 +72,24 @@ The app is designed to reduce the number of steps needed during a stressful situ
 
 The repository currently contains more than one Android Studio project under the uploaded project folder:
 
-\`\`\`text
+```text
 ers app zip file manan/
 └── ERSPROJECT/
     └── AndroidStudioProjects/
         ├── ERS/       # Main Android app implementation
         └── ERSUI/     # Separate UI project / interface work
-\`\`\`
+```
 
 For the main application, start with:
 
-\`ers app zip file manan/ERSPROJECT/AndroidStudioProjects/ERS\`
+`ers app zip file manan/ERSPROJECT/AndroidStudioProjects/ERS`
 
-The \`ERSUI\` project is separate from the main \`ERS\` implementation; it should not be mistaken for the complete recording-service implementation.
+The `ERSUI` project is separate from the main `ERS` implementation; it should not be mistaken for the complete recording-service implementation.
 
 ## Open and build the Android app
 
 1. Clone this repository.
-2. Open the \`ERS\` folder shown above in Android Studio.
+2. Open the `ERS` folder shown above in Android Studio.
 3. Let Android Studio sync the Gradle project and download the required dependencies.
 4. Connect an Android device or start an emulator.
 5. Review the permission and service setup before testing.
@@ -97,17 +97,17 @@ The \`ERSUI\` project is separate from the main \`ERS\` implementation; it shoul
 
 On Windows, you can also build the debug APK from the project directory:
 
-\`\`\`bat
+```bat
 cd "ers app zip file manan\ERSPROJECT\AndroidStudioProjects\ERS"
 gradlew.bat assembleDebug
-\`\`\`
+```
 
 On macOS or Linux:
 
-\`\`\`bash
+```bash
 cd "ers app zip file manan/ERSPROJECT/AndroidStudioProjects/ERS"
 ./gradlew assembleDebug
-\`\`\`
+```
 
 The debug APK is generated under the app module's Gradle build output directory.
 
