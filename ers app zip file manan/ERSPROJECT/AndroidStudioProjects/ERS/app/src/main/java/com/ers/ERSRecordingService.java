@@ -540,7 +540,7 @@ public class ERSRecordingService extends Service {
     private void sendEmergencyEmail() {
         String toEmail  = prefs.getString("email",        "").trim();
         String fromAddr = prefs.getString("smtpEmail",    "").trim();
-        String appPwd   = prefs.getString("smtpPassword", "").trim();
+        String appPwd   = SecurePrefs.getString(this, "smtpPassword").trim();
 
         if (toEmail.isEmpty() || fromAddr.isEmpty() || appPwd.isEmpty()) {
             Log.d(TAG, "Email skipped — SMTP not configured");

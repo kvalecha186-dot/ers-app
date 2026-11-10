@@ -145,10 +145,9 @@ public class VolumeButtonAccessibilityService extends AccessibilityService {
         super.onServiceConnected();
         AccessibilityServiceInfo info = getServiceInfo();
         if (info == null) info = new AccessibilityServiceInfo();
-        info.flags = AccessibilityServiceInfo.FLAG_REQUEST_FILTER_KEY_EVENTS
-                   | AccessibilityServiceInfo.FLAG_REPORT_VIEW_IDS
-                   | AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS;
-        info.eventTypes          = AccessibilityEvent.TYPES_ALL_MASK;
+        info.flags = AccessibilityServiceInfo.FLAG_REQUEST_FILTER_KEY_EVENTS;
+        // ERS only filters hardware key events. It does not inspect screen content.
+        info.eventTypes          = AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED;
         info.feedbackType        = AccessibilityServiceInfo.FEEDBACK_ALL_MASK;
         info.notificationTimeout = 0;
         info.packageNames        = null;

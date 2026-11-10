@@ -264,7 +264,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         // SMTP auto-email sender config
         smtpEmailInput.setText(prefs.getString("smtpEmail", ""));
-        smtpPasswordInput.setText(prefs.getString("smtpPassword", ""));
+        smtpPasswordInput.setText(SecurePrefs.getString(this, "smtpPassword"));
 
         // [C] Duration (only if layout has it)
         if (durationGroup != null) {
@@ -298,7 +298,11 @@ public class SettingsActivity extends AppCompatActivity {
         String smtpEmail = smtpEmailInput.getText().toString().trim();
         String smtpPwd   = smtpPasswordInput.getText().toString().trim().replaceAll("\\s", "");
         if (!smtpEmail.isEmpty()) ed.putString("smtpEmail",    smtpEmail);
-        if (!smtpPwd.isEmpty())   ed.putString("smtpPassword", smtpPwd);
+        if (!smtpPwd.isEmpty() && !SecurePrefs.putString(this, "smtpPassword", smtpPwd)) {
+            toast("Unable to securely save the email app password. Please try again.");
+            return;
+        }
+        ed.remove("smtpPassword"); // migrate/remove any legacy plaintext value
 
         // [C] Duration
         if (durationGroup != null) {

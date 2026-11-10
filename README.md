@@ -153,3 +153,15 @@ The companion website introduces ERS and explains the product:
 ## Why I built it
 
 I wanted to explore how Android features such as background services, accessibility events, audio recording, location and notifications can work together in a practical safety-focused application. ERS has been a useful project for learning about Android permissions, device behaviour and the difference between a feature that looks good in a demo and one that needs to work reliably on a real phone.
+
+
+## Security implementation
+
+- The Gmail SMTP App Password is encrypted with AES-GCM using a non-exportable Android Keystore key before it is written to app preferences.
+- Existing installations migrate a previously stored plaintext SMTP password to the encrypted format on the next settings read/save. If the Android Keystore key is invalidated, the app will require the user to enter the App Password again.
+- Trusted contact details and recordings remain on-device unless the user explicitly shares or backs them up.
+- Never commit SMTP App Passwords, signing keys, service-account credentials or real emergency contact data to this repository.
+
+## Automated build
+
+The repository includes a GitHub Actions workflow that assembles the main Android app's debug APK. The APK is published as a workflow artifact after a successful build. CI compilation does not replace real-device testing of Accessibility triggers, foreground recording, SMS delivery, email delivery, location permissions or Android background restrictions.
