@@ -185,59 +185,59 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean allPermissionsGranted() {
-        String[] perms;
+        String[] required;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            perms = new String[]{
+            required = new String[]{
                 Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.POST_NOTIFICATIONS
             };
         } else {
-            perms = new String[]{
+            required = new String[]{
                 Manifest.permission.RECORD_AUDIO,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION
             };
         }
-        for (String p : perms) {
-            if (ContextCompat.checkSelfPermission(this, p) != PackageManager.PERMISSION_GRANTED)
+        for (String permission : required) {
+            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
                 return false;
+            }
         }
         return true;
     }
 
     private void requestPermissions() {
         if (!allPermissionsGranted()) {
-            String[] perms;
+            String[] required;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                perms = new String[]{
+                required = new String[]{
                     Manifest.permission.RECORD_AUDIO,
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_COARSE_LOCATION,
                     Manifest.permission.POST_NOTIFICATIONS,
-                    Manifest.permission.SEND_SMS   // ← request SMS permission too
+                    Manifest.permission.SEND_SMS
                 };
             } else {
-                perms = new String[]{
+                required = new String[]{
                     Manifest.permission.RECORD_AUDIO,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_COARSE_LOCATION,
                     Manifest.permission.SEND_SMS
                 };
             }
-            ActivityCompat.requestPermissions(this, perms, REQUEST_PERMISSIONS);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
-                   ContextCompat.checkSelfPermission(this,
-                           Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                           != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, required, REQUEST_PERMISSIONS);
+            return;
+        }
+
+        // Background location is requested separately, as required by Android 10+.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
+                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
             new AlertDialog.Builder(this)
                     .setTitle("Background Location")
-                    .setMessage("ERS needs background location to capture GPS during emergencies.")
+                    .setMessage("Allow background location if you want ERS to attach your location when an emergency is triggered while the app is not open. You can continue without it, but location alerts may be less accurate.")
                     .setPositiveButton("Grant", (d, w) ->
                             ActivityCompat.requestPermissions(this,
                                     new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION},
@@ -289,21 +289,35 @@ public class MainActivity extends AppCompatActivity {
             @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_PERMISSIONS) {
-            boolean allGranted = true;
-            for (int r : grantResults) {
-                if (r != PackageManager.PERMISSION_GRANTED) { allGranted = false; break; }
+            boolean requiredGranted = true;
+            boolean smsGranted = true;
+            for (int i = 0; i < permissions.length; i++) {
+                if (grantResults.length <= i) continue;
+                if (Manifest.permission.SEND_SMS.equals(permissions[i])) {
+                    smsGranted = grantResults[i] == PackageManager.PERMISSION_GRANTED;
+                } else if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                    requiredGranted = false;
+                }
             }
-            if (allGranted) {
+
+            if (requiredGranted) {
                 vibrateClick();
-                Toast.makeText(this, "✅ Permissions Granted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, smsGranted
+                        ? "Permissions granted"
+                        : "Recording can run, but SMS alerts are disabled until SMS permission is granted.",
+                        Toast.LENGTH_LONG).show();
+                requestPermissions(); // Request background location separately when applicable.
                 if (serviceToggle.isChecked()) checkBatteryOptimization();
             } else {
                 serviceToggle.setChecked(false);
                 updateStatus(false);
                 Toast.makeText(this,
-                        "⚠️ Some permissions missing — SMS alert may not work",
+                        "Microphone, foreground location and notification permissions are required to enable ERS.",
                         Toast.LENGTH_LONG).show();
             }
+        } else if (requestCode == REQUEST_LOCATION_PERMISSION && serviceToggle.isChecked()
+                && allPermissionsGranted()) {
+            checkBatteryOptimization();
         }
     }
 
