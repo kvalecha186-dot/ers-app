@@ -1,0 +1,36 @@
+name: ERS Android CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ers app zip file manan/ERSPROJECT/AndroidStudioProjects/ERS/**'
+      - '.github/workflows/android-ci.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'ers app zip file manan/ERSPROJECT/AndroidStudioProjects/ERS/**'
+      - '.github/workflows/android-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: ers app zip file manan/ERSPROJECT/AndroidStudioProjects/ERS
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK 36
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Run unit tests and assemble debug APK
+        run: ./gradlew --no-daemon testDebugUnitTest assembleDebug
