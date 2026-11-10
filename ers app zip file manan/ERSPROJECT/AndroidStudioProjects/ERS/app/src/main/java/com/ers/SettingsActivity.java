@@ -298,7 +298,10 @@ public class SettingsActivity extends AppCompatActivity {
         String smtpEmail = smtpEmailInput.getText().toString().trim();
         String smtpPwd   = smtpPasswordInput.getText().toString().trim().replaceAll("\\s", "");
         if (!smtpEmail.isEmpty()) ed.putString("smtpEmail",    smtpEmail);
-        if (!smtpPwd.isEmpty())   SecurePrefs.putString(this, "smtpPassword", smtpPwd);
+        if (!smtpPwd.isEmpty() && !SecurePrefs.putString(this, "smtpPassword", smtpPwd)) {
+            toast("Unable to securely save the email app password. Please try again.");
+            return;
+        }
         ed.remove("smtpPassword"); // migrate/remove any legacy plaintext value
 
         // [C] Duration
