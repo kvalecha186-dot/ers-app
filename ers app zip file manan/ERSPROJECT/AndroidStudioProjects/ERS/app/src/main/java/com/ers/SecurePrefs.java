@@ -24,7 +24,6 @@ public final class SecurePrefs {
     private static final String TAG = "ERS_SecurePrefs";
     private static final String PREFS = "ERSSettings";
     private static final String KEY_ALIAS = "com.ers.smtp-secret.v1";
-    private static final String IV_KEY = "smtpPassword_encrypted";
     private static final int IV_LENGTH_BYTES = 12;
     private static final int TAG_LENGTH_BITS = 128;
 
