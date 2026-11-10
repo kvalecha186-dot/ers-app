@@ -36,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ers-debug-apk
-          path: app/build/outputs/apk/debug/*.apk
+          path: ers app zip file manan/ERSPROJECT/AndroidStudioProjects/ERS/app/build/outputs/apk/debug/*.apk
