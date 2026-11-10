@@ -59,8 +59,7 @@ public class EmailSender {
         props.put("mail.smtp.socketFactory.port",     SMTP_PORT);
         props.put("mail.smtp.socketFactory.class",    "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.socketFactory.fallback", "false");
-        props.put("mail.smtp.ssl.checkserveridentity","false");
-        props.put("mail.smtp.ssl.trust",              SMTP_HOST);
+        props.put("mail.smtp.ssl.checkserveridentity","true");
         props.put("mail.smtp.timeout",                "15000");
         props.put("mail.smtp.connectiontimeout",      "15000");
 
