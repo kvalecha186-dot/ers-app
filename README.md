@@ -165,3 +165,10 @@ I wanted to explore how Android features such as background services, accessibil
 ## Automated build
 
 The repository includes a GitHub Actions workflow that assembles the main Android app's debug APK. The APK is published as a workflow artifact after a successful build. CI compilation does not replace real-device testing of Accessibility triggers, foreground recording, SMS delivery, email delivery, location permissions or Android background restrictions.
+
+
+## Release and safety status
+
+> **Prototype notice:** ERS is an emergency-assistance prototype, not a certified or guaranteed emergency response service. Do not rely on it as the only way to contact emergency services. Device manufacturers, Android versions, carrier rules, battery policies and permission settings can prevent background triggers or SMS/email/location delivery. Always keep an independent emergency contact method available and validate the app on each supported device before real-world use.
+
+The CI artifact is a **debug APK for testing**, not a Play Store release. A production release still requires a privately managed signing keystore, a signed release build, a privacy/data-safety review, and end-to-end device/carrier tests. Never commit the signing keystore or its passwords to GitHub.
