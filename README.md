@@ -1,10 +1,38 @@
-# ERS App — Emergency Recording System
+<div align="center">
 
+# 🚨 ERS App — Emergency Recording System
+### *A native Android app that records audio and alerts trusted contacts from a hardware-button trigger*
+
+[![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/)
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
+[![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)](https://gradle.org/)
+[![Android CI](https://github.com/kvalecha186-dot/ers-app/actions/workflows/android-ci.yml/badge.svg)](https://github.com/kvalecha186-dot/ers-app/actions/workflows/android-ci.yml)
+
+[Product Website](https://emergencyrecordingsystem.vercel.app) · [Preview](#-preview) · [Build the app](#open-and-build-the-android-app) · [Website Repo](https://github.com/kvalecha186-dot/emergencyrecordingsystem)
+
+<br/>
+
+<img src="docs/screenshots/website-hero.webp" alt="ERS product website: Your Emergency. Recorded." width="900"/>
+
+</div>
+
+---
 ERS (Emergency Recording System) is an Android application I have been working on for situations where a person may need to start recording quickly and alert trusted contacts without going through the usual steps of unlocking the phone and opening an app.
 
 The main idea is simple: set up the app in advance, add trusted emergency contacts, grant the required permissions and enable the emergency service. When the configured hardware-button trigger is used, ERS can start an audio-recording workflow and prepare or send emergency alerts using the configured communication methods.
 
 This repository contains the Android Studio project files. The primary implementation is in the `ERS` project folder.
+
+## 📸 Preview
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/website-app-screens.webp" alt="ERS app screens on the product website"/><br/><sub><b>App screens</b> — home screen as shown on the product website</sub></td>
+    <td width="50%"><img src="docs/screenshots/website-app-recording.webp" alt="ERS recording screen on the product website"/><br/><sub><b>Recording screen</b> — live timer and SMS delivery confirmation</sub></td>
+  </tr>
+</table>
+
+> These images come from the [companion product website](https://github.com/kvalecha186-dot/emergencyrecordingsystem), which presents the app's screens as mockups. Screenshots taken directly on an Android device will be added here.
 
 ## Main features in the Android implementation
 
